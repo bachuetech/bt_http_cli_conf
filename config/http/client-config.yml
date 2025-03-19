@@ -1,0 +1,11 @@
+#Config http client global paramters
+empty:
+dev:
+  danger_accept_invalid_hostnames:  true
+  danger_accept_invalid_certs: false
+prod:
+  danger_accept_invalid_hostnames:  false
+  danger_accept_invalid_certs: false
+err_wrong:
+  danger_accept_invalid_hostnames:  WRONG_TYPE
+  danger_accept_invalid_certs: WRONG_TYPE
