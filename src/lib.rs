@@ -12,7 +12,7 @@ use yaml_rust2::Yaml;
 /// Returns an 'Option', which is a vector containing tuples where each tuple consists of:
 ///     A string key
 ///     A boolean value corresponding to that key.
-///     If no valid entries are found, or if there's an error during processing, the function returns None.
+///     If no valid entries are found, or if there's an error during processing (the configuration is not found or invalid), the function returns None.
     pub fn get_http_client_bool_config(environment: String, confi_env_var_name: String, config_yaml_file: String) -> Option<Vec<(String, bool)>>{
         let api_config: Yaml;
         

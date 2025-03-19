@@ -6,9 +6,9 @@ authors = ["calvarez <calvarez@bachuetech.biz>"]
 description = "Retrieve the HTTP client configuration for a given environment from a YAML file."
 keywords = ["http","client"]
 categories = ["value-formatting", "development-tools", "filesystem","config"]
-repository = "https://github.com/bachuetech/"
+repository = "https://github.com/bachuetech/bt_http_cli_conf"
 readme = "README.md"
-homepage = "https://github.com/bachuetech/b"
+homepage = "https://github.com/bachuetech/bt_http_cli_conf"
 license = "GPL-3.0-only"
 
 [dependencies]
