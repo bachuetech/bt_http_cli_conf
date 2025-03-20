@@ -14,14 +14,16 @@ const API_MGR_CONFIG_YML_ENV_VAR_NAME: &str = "BT_HTTPCLI_YMLCONFIGFILE";
 
 let environment = "dev";
 
-let conf = get_http_client_bool_config(environment.to_owned()
-                                        , API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string()
-                                        , API_MGR_CONFIG_YML.to_string());
+let conf = get_http_client_bool_config(&environment.to_owned()
+                                        , &API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string()
+                                        , &API_MGR_CONFIG_YML.to_string());
 ```
 
 ## Version History
 * 0.1.0
     * Initial Release
+* 0.1.1
+    * Change parameters
 
 ## License
 GPL-3.0-only

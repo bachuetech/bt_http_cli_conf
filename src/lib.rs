@@ -13,7 +13,7 @@ use yaml_rust2::Yaml;
 ///     A string key
 ///     A boolean value corresponding to that key.
 ///     If no valid entries are found, or if there's an error during processing (the configuration is not found or invalid), the function returns None.
-    pub fn get_http_client_bool_config(environment: String, confi_env_var_name: String, config_yaml_file: String) -> Option<Vec<(String, bool)>>{
+    pub fn get_http_client_bool_config(environment: &String, confi_env_var_name: &String, config_yaml_file: &String) -> Option<Vec<(String, bool)>>{
         let api_config: Yaml;
         
         match get_yaml(confi_env_var_name.as_str(), config_yaml_file.as_str()) {
@@ -69,8 +69,8 @@ use yaml_rust2::Yaml;
         pub fn read_config_test_empty() {
             build_logger("BACHUETECH", "HTTP_CONFIG", LogLevel::VERBOSE, LogTarget::STD_OUT);
             let environment = "empty";
-            let conf = get_http_client_bool_config(environment.to_owned(), API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string()
-                                                                , API_MGR_CONFIG_YML.to_string());
+            let conf = get_http_client_bool_config(&environment.to_owned(), &API_MGR_CONFIG_YML_ENV_VAR_NAME.to_owned()
+                                                                , &API_MGR_CONFIG_YML.to_owned());
             //let resp = vec!(("danger_accept_invalid_hostnames".to_string(), true), ("danger_accept_invalid_certs".to_string(), false));
             println!("Config {:?}",conf);
             assert_eq!(conf,None);
@@ -80,9 +80,9 @@ use yaml_rust2::Yaml;
         pub fn read_config_test_wrong_path() {
             build_logger("BACHUETECH", "HTTP_CONFIG", LogLevel::VERBOSE, LogTarget::STD_OUT);
             let environment = "empty";
-            let conf = get_http_client_bool_config(environment.to_owned()
-                                                                ,"wrong".to_string()
-                                                                , "wrong".to_string());
+            let conf = get_http_client_bool_config(&environment.to_owned()
+                                                                ,&"wrong".to_string()
+                                                                , &"wrong".to_string());
             //let resp = vec!(("danger_accept_invalid_hostnames".to_string(), true), ("danger_accept_invalid_certs".to_string(), false));
             println!("Config {:?}",conf);
             assert_eq!(conf,None);
@@ -92,8 +92,8 @@ use yaml_rust2::Yaml;
         pub fn read_config_test_success() {
             build_logger("BACHUETECH", "HTTP_CONFIG", LogLevel::VERBOSE, LogTarget::STD_OUT);
             let environment = "dev";
-            let conf = get_http_client_bool_config(environment.to_owned(), API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string()
-                                                                , API_MGR_CONFIG_YML.to_string());
+            let conf = get_http_client_bool_config(&environment.to_owned(), &API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string()
+                                                                , &API_MGR_CONFIG_YML.to_string());
             let resp = vec!(("danger_accept_invalid_hostnames".to_string(), true), ("danger_accept_invalid_certs".to_string(), false));
             println!("Config {:?}",conf);
             assert_eq!(conf,Some(resp));
@@ -103,7 +103,8 @@ use yaml_rust2::Yaml;
         pub fn read_config_test_invalid_env() {
             build_logger("BACHUETECH", "HTTP_CONFIG", LogLevel::VERBOSE, LogTarget::STD_OUT);
             let environment = "INVALID";
-            let conf = get_http_client_bool_config(environment.to_owned(), API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string(), API_MGR_CONFIG_YML.to_string());
+            let conf = get_http_client_bool_config(&environment.to_owned(), &API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string(),
+                                                & API_MGR_CONFIG_YML.to_string());
             println!("Config {:?}",conf);
             assert_eq!(conf,None);
         }
@@ -112,7 +113,8 @@ use yaml_rust2::Yaml;
         pub fn read_config_test_wrong_bool() {
             build_logger("BACHUETECH", "HTTP_CONFIG", LogLevel::VERBOSE, LogTarget::STD_OUT);
             let environment = "err_wrong";
-            let conf = get_http_client_bool_config(environment.to_owned(), API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string(), API_MGR_CONFIG_YML.to_string());
+            let conf = get_http_client_bool_config(&environment.to_owned(), &API_MGR_CONFIG_YML_ENV_VAR_NAME.to_string(), 
+                                            &API_MGR_CONFIG_YML.to_string());
             println!("Config {:?}",conf);
             assert_eq!(conf,None);
         }
