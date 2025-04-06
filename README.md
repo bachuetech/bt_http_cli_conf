@@ -24,6 +24,9 @@ let conf = get_http_client_bool_config(&environment.to_owned()
     * Initial Release
 * 0.1.1
     * Change parameters
+* 0.1.2
+    * Update dependencies
+
 
 ## License
 GPL-3.0-only

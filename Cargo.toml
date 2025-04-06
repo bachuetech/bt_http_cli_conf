@@ -1,6 +1,6 @@
 [package]
 name = "bt_http_cli_conf"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 authors = ["calvarez <calvarez@bachuetech.biz>"]
 description = "Retrieve the HTTP client configuration for a given environment from a YAML file."
@@ -12,6 +12,6 @@ homepage = "https://github.com/bachuetech/bt_http_cli_conf"
 license = "GPL-3.0-only"
 
 [dependencies]
-bt_logger = "0.2.2"
+bt_logger = "0.2.3"
 bt_yaml_utils = "0.1.2"
 yaml-rust2 = "0.10.0"
